@@ -4,7 +4,15 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
-@Entity (tableName = "mataKuliah")
+@Entity (tableName = "mataKuliah",
+        foreignKeys = [ForeignKey(
+    entity = com.example.ucplagi.data.entity.Dosen::class,
+    parentColumns = ["nidn"],
+            ["dosenPengampu"],
+            onDelete =
+                ForeignKey.CASCADE
+    )]
+)
 data class MataKuliah(
     @PrimaryKey
     val kode: String,
